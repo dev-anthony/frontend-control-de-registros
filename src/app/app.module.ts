@@ -9,9 +9,12 @@ import { RegistrerComponent } from './sesion/registrer/registrer.component';
 import { RegistroComponent } from './registro/registro.component';
 import { TalleresComponent } from './registro/talleres/talleres.component';
 import { InstrumentosComponent } from './registro/instrumentos/instrumentos.component';
-import { DataTablesModule } from 'angular-datatables';
-import { DatatableComponent } from './components/datatable/datatable.component';
+
 import { HttpClientModule } from '@angular/common/http';
+import { AlumnoComponent } from './registro/alumnos/alumno/alumno.component';
+import { DataTablesModule } from 'angular-datatables';
+import { AlumnosComponent } from './registro/alumnos/alumnos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,15 @@ import { HttpClientModule } from '@angular/common/http';
     RegistroComponent,
     TalleresComponent,
     InstrumentosComponent,
-    DatatableComponent
+    AlumnoComponent,
+    AlumnosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
