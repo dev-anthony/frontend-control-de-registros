@@ -30,6 +30,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
   }
 
   getAlumnos(): void {
+
     this.alumnoService.getAlumnos().subscribe(
       (response: any) => {
         console.log(response);
@@ -46,4 +47,6 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
   }
+
 }
+

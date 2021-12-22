@@ -9,14 +9,14 @@ import { Observable } from 'rxjs';
 export class AlumnosService {
   [x: string]: any;
 
-  url = 'https://api-control-registros.herokuapp.com/api/alumnos';
+  url: string = 'https://api-control-registros.herokuapp.com/api/alumnos';
 
   constructor( private http: HttpClient ) { }
   header = new HttpHeaders()
   .set('Content-Type', 'application/json');
 
-  getAlumnos() {
-    return this.http.get(this.url);
+  getAlumnos(): Observable<Alumno[]> {
+    return this.http.get<Alumno[]>(this.url);
   }
 
   showAlumno(id: number) {
