@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
+import { Alumno } from 'src/app/models/Alumno';
+import { AlumnosService } from 'src/app/services/alumnos.service';
 
 @Component({
   selector: 'app-alumno',
@@ -8,13 +10,52 @@ import { NgForm } from '@angular/forms';
 })
 export class AlumnoComponent implements OnInit {
 
-  constructor() { }
+  FormRegistroAlm: FormGroup = new FormGroup({});
+  data: Alumno[];
+
+  constructor(private formBuilder:FormBuilder,
+              private alumnoServices: AlumnosService) { }
 
   ngOnInit(): void {
+  this.FormRegistroAlm=this.formBuilder.group(
+      {
+      nombre: new FormControl('',[
+        Validators.required,
+        // Validators.pattern('[a-zA-Z ]*')
+      ]),
+      apellidos : new FormControl('',[
+        Validators.required,
+        // Validators.pattern('[a-zA-Z ]*')
+
+      ]),
+      edad : new FormControl('',[
+        Validators.required,
+        // Validators.pattern('[0-9]'),
+        // Validators.minLength(1),
+        // Validators.maxLength(2)
+
+      ]),
+      telefono_1 : new FormControl('',[
+        Validators.required,
+        // Validators.pattern('[0-9 ]'),
+        // Validators.minLength(10),
+        // Validators.maxLength(10)
+      ]),
+      telefono_2 : new FormControl('',[
+        Validators.required,
+        // Validators.pattern('[0-9]'),
+        // Validators.minLength(10),
+        // Validators.maxLength(10)
+      ]),
+    });
   }
 
-onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
+  postAlumno(): void {
+    this.alumnoServices.postAlumno('https://api-control-registros.herokuapp.com/api/alumnos', 
+  this.FormRegistroAlm.value)
+  .subscribe(respuesta => {
+    console.log('usuario agregado');
+  })
+    }
+    // this.router.navigate(['header/login']);
   }
-}

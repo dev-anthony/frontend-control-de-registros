@@ -14,8 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlumnoComponent } from './registro/alumnos/alumno/alumno.component';
 import { DataTablesModule } from 'angular-datatables';
 import { AlumnosComponent } from './registro/alumnos/alumnos.component';
-import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     DataTablesModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

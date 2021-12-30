@@ -23,8 +23,12 @@ export class AlumnosService {
     return this.http.get<any[]>(`$(this.url)/show/${id}`);
   }
 
-  postAlumno(alumno: Alumno): Observable<Alumno> {
-    return this.http.post<Alumno>(`$(this.url)/store`, alumno);
+  // postAlumno(alumno: Alumno): Observable<Alumno> {
+  //   return this.http.post<Alumno>(`$(this.url)/store`, alumno);
+  // }
+
+  public postAlumno (url:string, body: any){
+    return this.http.post(url, body);
   }
 
   updateAlumno(alumno: Alumno): Observable<Alumno> {
