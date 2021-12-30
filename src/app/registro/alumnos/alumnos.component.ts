@@ -11,8 +11,9 @@ import { AlumnosService } from 'src/app/services/alumnos.service';
 export class AlumnosComponent implements OnInit, OnDestroy {
 
   dtOptions: DataTables.Settings = {};
-
-  dtTrigger = new Subject();
+  // dtTrigger: Subject<any> = new Subject<any>();
+  dtTrigger = new Subject<any>();
+  
   data: Alumno[];
   titulo: string = 'Listado de Alumnos';
 
@@ -23,7 +24,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     this.dtOptions = {
       language: { url: '//cdn.datatables.net/plug-ins/1.11.3/i18n/es-mx.json'},
       pagingType: 'full_numbers',
-      pageLength: 2,
+      pageLength: 3,
       responsive: true
     };
     this.getAlumnos();
@@ -35,7 +36,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
       (response: any) => {
         console.log(response);
         this.data = response.data;
-        this.dtTrigger.next(Alumno);
+        this.dtTrigger.next(0);
       });
   }
 
@@ -46,6 +47,13 @@ export class AlumnosComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
+  }
+  
+  deleteAlumno(id: any): void {
+    this.alumnoService.destroyAlumno(id).subscribe( () => { 
+      // console.log(id);
+      window.location.reload();
+    } );
   }
 
 }

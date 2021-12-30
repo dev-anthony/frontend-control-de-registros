@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './includes/footer/navbar/navbar.component';
 import { LoginComponent } from './sesion/login/login.component';
 import { RegistrerComponent } from './sesion/registrer/registrer.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -16,6 +16,10 @@ import { DataTablesModule } from 'angular-datatables';
 import { AlumnosComponent } from './registro/alumnos/alumnos.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { FooterComponent } from './includes/footer/footer.component';
+import { EditarAlumnoComponent } from './registro/alumnos/alumno/editar-alumno/editar-alumno.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +30,9 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     TalleresComponent,
     InstrumentosComponent,
     AlumnoComponent,
-    AlumnosComponent
+    AlumnosComponent,
+    FooterComponent,
+    EditarAlumnoComponent
   ],
   imports: [
     BrowserModule,
