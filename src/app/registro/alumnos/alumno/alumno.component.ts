@@ -21,33 +21,33 @@ export class AlumnoComponent implements OnInit {
   ngOnInit(): void {
   this.FormRegistroAlm=this.formBuilder.group(
       {
-      nombre: new FormControl('',[
+      nombre: new FormControl ('', [
         Validators.required,
-        // Validators.pattern('[a-zA-Z ]*')
+      //crear un validator para el nombre que solo acepte letras de la a-z y con caracteres especiales
+      Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')
       ]),
+
       apellidos : new FormControl('',[
         Validators.required,
-        // Validators.pattern('[a-zA-Z ]*')
-
+        Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*')
       ]),
       edad : new FormControl('',[
         Validators.required,
-        // Validators.pattern('[0-9]'),
-        // Validators.minLength(1),
-        // Validators.maxLength(2)
-
+        Validators.pattern('[0-9]{1,2}'),
+        Validators.maxLength(2),
+        Validators.minLength(2)
       ]),
       telefono_1 : new FormControl('',[
         Validators.required,
-        // Validators.pattern('[0-9 ]'),
-        // Validators.minLength(10),
-        // Validators.maxLength(10)
+        Validators.pattern('[0-9]{10}'),
+        Validators.maxLength(10),
+        Validators.minLength(10)
       ]),
       telefono_2 : new FormControl('',[
         Validators.required,
-        // Validators.pattern('[0-9]'),
-        // Validators.minLength(10),
-        // Validators.maxLength(10)
+        Validators.pattern('[0-9]{10}'),
+        Validators.maxLength(10),
+        Validators.minLength(10)
       ]),
     });
   }
