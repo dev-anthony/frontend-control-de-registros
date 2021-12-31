@@ -1,6 +1,9 @@
 <div class="container mt-4 vh-100">
-  <div class="container justify-content-end">
-    <button class="btn btn-primary"><i class="bi bi-plus-circle" routerLink="alumno"></i></button>
+  <h1 class="text-center">Listado de alumnos</h1>
+  <div class="container d-flex mb-4 justify-content-end">
+    <a class="btn btn-primary" routerLink="alumno"><i class="bi bi-plus-circle"></i>
+      &nbsp;Agregar alumno
+    </a>
 </div>
 
 
@@ -8,6 +11,7 @@
     id="tbl-alumnos">
     <thead>
       <tr>
+        <th>Numero</th>
         <th>Nombre</th>
         <th>Apellidos</th>
         <th>Edad</th>
@@ -18,7 +22,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let alumno of data">
+      <tr *ngFor="let alumno of data; let i = index">
+        <td>{{i + 1 }}</td>
         <td>{{ alumno.nombre }}</td>
         <td>{{ alumno.apellidos }}</td>
         <td>{{ alumno.edad }}</td>
@@ -30,8 +35,8 @@
           </div>
         </td>
         <td>
-          <div class="container justify-content">
-            <a class="btn btn-danger" (click)="deleteAlumno( alumno.id )"><i class="bi bi-trash-fill"></i></a>
+          <div id="liveAlertPlaceholder" class="container justify-content">
+            <a id="liveAlertBtn" class="btn btn-danger" (click)="deleteAlumno( alumno.id )"><i class="bi bi-trash-fill"></i></a>
           </div>
         </td>
       </tr>

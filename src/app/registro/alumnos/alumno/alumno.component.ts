@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
+import { Router } from '@angular/router';
 import { Alumno } from 'src/app/models/Alumno';
 import { AlumnosService } from 'src/app/services/alumnos.service';
 
@@ -14,7 +15,8 @@ export class AlumnoComponent implements OnInit {
   data: Alumno[];
 
   constructor(private formBuilder:FormBuilder,
-              private alumnoServices: AlumnosService) { }
+              private alumnoServices: AlumnosService,
+              private router: Router) { }
 
   ngOnInit(): void {
   this.FormRegistroAlm=this.formBuilder.group(
@@ -54,8 +56,10 @@ export class AlumnoComponent implements OnInit {
     this.alumnoServices.postAlumno('https://api-control-registros.herokuapp.com/api/alumnos', 
   this.FormRegistroAlm.value)
   .subscribe(respuesta => {
-    console.log('usuario agregado');
-  })
+    // console.log('usuario agregado');
+    window.location.reload();
+  });
+
+  this.router.navigate(['/alumnos']);
     }
-    // this.router.navigate(['header/login']);
   }

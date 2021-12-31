@@ -15,7 +15,6 @@ export class TalleresComponent implements OnInit, OnDestroy {
 
   dtTrigger = new Subject();
   data: Taller[];
-  titulo: string = 'Listado de Alumnos';
 
 
   constructor(private talleresService: TalleresService) { }

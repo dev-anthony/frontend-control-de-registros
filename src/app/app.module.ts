@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './includes/footer/navbar/navbar.component';
+import { NavbarComponent } from './includes/navbar/navbar.component';
 import { LoginComponent } from './sesion/login/login.component';
 import { RegistrerComponent } from './sesion/registrer/registrer.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -18,6 +18,8 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { FooterComponent } from './includes/footer/footer.component';
 import { EditarAlumnoComponent } from './registro/alumnos/alumno/editar-alumno/editar-alumno.component';
+import { InicioComponent } from './includes/inicio/inicio.component';
+
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { EditarAlumnoComponent } from './registro/alumnos/alumno/editar-alumno/e
     AlumnoComponent,
     AlumnosComponent,
     FooterComponent,
-    EditarAlumnoComponent
+    EditarAlumnoComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

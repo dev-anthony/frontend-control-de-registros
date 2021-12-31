@@ -3,6 +3,8 @@ import { Subject } from 'rxjs';
 import { Alumno } from 'src/app/models/Alumno';
 import { AlumnosService } from 'src/app/services/alumnos.service';
 
+declare var alert: any;
+
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
@@ -18,13 +20,14 @@ export class AlumnosComponent implements OnInit, OnDestroy {
   titulo: string = 'Listado de Alumnos';
 
 
-  constructor(private alumnoService: AlumnosService) { }
+  constructor(private alumnoService: AlumnosService) {
+  }
 
   ngOnInit(): void {
     this.dtOptions = {
       language: { url: '//cdn.datatables.net/plug-ins/1.11.3/i18n/es-mx.json'},
       pagingType: 'full_numbers',
-      pageLength: 3,
+      pageLength: 10,
       responsive: true
     };
     this.getAlumnos();
@@ -40,10 +43,6 @@ export class AlumnosComponent implements OnInit, OnDestroy {
       });
   }
 
-  postAlumno(): void {
-    // this.alumnoService.postAlumno().subscribe();
-  }
-
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
@@ -53,6 +52,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     this.alumnoService.destroyAlumno(id).subscribe( () => { 
       // console.log(id);
       window.location.reload();
+      alert();
     } );
   }
 

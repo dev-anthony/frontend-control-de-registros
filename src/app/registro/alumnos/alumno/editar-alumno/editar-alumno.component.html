@@ -1,30 +1,31 @@
-<div class="container">
-    <h1 class="text-center">Editar Alumno</h1>
-<form [formGroup]="FormEditAlumno" (submit)="updateAlumno()" class="form-control" action="" novalidate>
-    <div class="mb-3 mt-4">
-        <label class="form-label">Nombre</label>
-        <input formControlName="nombre"
-        class="form-control"
-        aria-label="nombre"
-        type="text"
-        placeholder="nombre">
+<main class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="row ">
+        <h2 class="m-0 mb-4">Editar Alumno</h2>
+        <div class="col-12">
+            <form [formGroup]="FormEditAlumno" (submit)="updateAlumno()" class="form-control shadow p-3">
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input formControlName="nombre" class="form-control" aria-label="nombre" type="text" placeholder="nombre">
+                <div id="emailHelp" class="form-text">Ok', solo ingresa tu nombre.</div>
+                </div>
+                <div class="mb-3">
+                    <label type="text" class="form-label">Apellidos</label>
+                    <input formControlName="apellidos" class="form-control" id="exampleFormControlInput1" placeholder="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Edad</label>
+                    <input type="number" formControlName="edad" class="form-control" id="exampleFormControlInput1" placeholder="edad">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Telefono 1</label>
+        <input formControlName="telefono_1" type="text" class="form-control" id="exampleFormControlInput1" placeholder="telefono 1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Telefono 2</label>
+                    <input formControlName="telefono_2" type="text" class="form-control" id="exampleFormControlInput1" placeholder="telefono 2">
+                </div>
+                <button [disabled]="FormEditAlumno.invalid" type="submit" class="btn btn-primary">Editar</button>
+            </form>
+        </div>
     </div>
-    <div class="mb-3 mt-4">
-        <label type="text" class="form-label">Apellidos</label>
-        <input formControlName="apellidos" class="form-control" id="exampleFormControlInput1" placeholder="nombre">
-    </div>
-    <div class="mb-3 mt-4">
-        <label for="exampleFormControlInput1" class="form-label">Edad</label>
-        <input type="number" formControlName="edad" class="form-control" id="exampleFormControlInput1" placeholder="nombre">
-    </div>
-    <div class="mb-3 mt-4">
-        <label for="exampleFormControlInput1" class="form-label">Telefono 1</label>
-        <input formControlName="telefono_1" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre">
-    </div>
-    <div class="mb-3 mt-4">
-        <label for="exampleFormControlInput1" class="form-label">Telefono 2</label>
-        <input formControlName="telefono_2" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre">
-    </div>
-    <button [disabled]="FormEditAlumno.invalid" type="submit" class="btn btn-primary">Editar</button>
-</form>
-</div>
+</main>
