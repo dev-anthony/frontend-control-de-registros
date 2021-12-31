@@ -8,3 +8,8 @@ function alert(message, type) {
   alertPlaceholder.append(wrapper)
 }
 
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', function () {
+    alert('Nice, you triggered this alert message!', 'danger')
+  })
+}
