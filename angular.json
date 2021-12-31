@@ -106,9 +106,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/js/alumno-alert-eliminar.js"
-            ]
+            "scripts": []
           }
         }
       }
