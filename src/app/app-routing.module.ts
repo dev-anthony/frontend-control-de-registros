@@ -11,6 +11,7 @@ import { RegistrerComponent } from './sesion/registrer/registrer.component';
 
 
 const routes: Routes = [
+  { path: '', component: InicioComponent },
   { path: 'includes/inicio', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registrer', component: RegistrerComponent },
