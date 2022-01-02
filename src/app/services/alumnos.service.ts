@@ -23,9 +23,9 @@ export class AlumnosService {
     return this.http.get<Alumno[]>(this.url + '/' + id);
   }
 
-  showAlumno(id: number) {
-    return this.http.get<any[]>(`$(this.url)/show/${id}`);
-  }
+  // showAlumno(id: number) {
+  //   return this.http.get<any[]>(`$(this.url)/show/${id}`);
+  // }
 
   // postAlumno(alumno: Alumno): Observable<Alumno> {
   //   return this.http.post<Alumno>(`$(this.url)/store`, alumno);

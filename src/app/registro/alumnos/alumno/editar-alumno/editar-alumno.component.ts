@@ -53,7 +53,7 @@ export class EditarAlumnoComponent implements OnInit {
         });
 
         let id = this.router.snapshot.paramMap.get('id');
-        console.log(id);
+        // console.log(id);
         this.getAlumno(id);
       }
 
